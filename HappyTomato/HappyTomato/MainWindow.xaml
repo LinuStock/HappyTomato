@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:HappyTomato"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+    <Grid Background="#FFBF1D06">
+        <Button x:Name="StartButton" Content="START" HorizontalAlignment="Left" Margin="204,239,0,0" VerticalAlignment="Top" Width="100" Height="42" FontSize="24" Click="StartButton_Click"/>
+        <Label x:Name="TimerLabel" Content="Label" HorizontalAlignment="Left" Margin="204,126,0,0" VerticalAlignment="Top" Width="100" FontSize="24"/>
+
     </Grid>
 </Window>

@@ -24,5 +24,38 @@ namespace HappyTomato
     {
       InitializeComponent();
     }
+    
+    private void StartButton_Click(object sender, RoutedEventArgs e)
+    {
+      StartButton.IsEnabled = false;
+      // red #FFBF1D06
+      // green #7a952b
+      run();
+
+    }
+
+    async void run()
+    {
+      const int limit = 3;
+      this.TimerLabel.Content = toTimer(limit);
+      for (var i = limit - 1; i >= 0; i--)
+      {
+        this.TimerLabel.Content = await countTimer(i);
+      }
+      this.TimerLabel.Content = "Finished!";
+      StartButton.IsEnabled = true;
+    }
+
+    async Task<string> countTimer(int percent) 
+    {
+      await Task.Delay(1000);
+      return toTimer(percent);
+    }
+
+    private string toTimer(int i)
+    {
+      TimeSpan ts = TimeSpan.FromSeconds(i);
+      return ts.Minutes.ToString("00") + ":" + ts.Seconds.ToString("00");
+    }
   }
 }
